@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Mvc_RealeState.Models.Flat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Flat</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Flat Info   
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Complete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sold)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            Discount
+        </th>
+        <th>
+            FlatType
+        </th>
+        <th>
+            Property Name
+        </th>
+
+        <th>
+            Image
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            Flat Name:@Html.DisplayFor(modelItem => item.Name)<br />      
+            Flat Size:@Html.DisplayFor(modelItem => item.Size)<br /> 
+            Total Room:@Html.DisplayFor(modelItem => item.Total_Room)<br /> 
+            BedRoom:@Html.DisplayFor(modelItem => item.BedRoom)<br /> 
+            Kichen:@Html.DisplayFor(modelItem => item.Kichen)<br /> 
+            WashRoom:@Html.DisplayFor(modelItem => item.WashRoom)<br /> 
+            Dining:@Html.DisplayFor(modelItem => item.Dining)<br /> 
+            Draining:@Html.DisplayFor(modelItem => item.Draining)<br /> 
+            Corridor:@Html.DisplayFor(modelItem => item.Corridor)<br /> 
+            Position:@Html.DisplayFor(modelItem => item.Position)
+            Floor No:@Html.DisplayFor(modelItem => item.Floor_No)
+        </td>
+        <td>
+           Complete:@if(item.Complete==true)
+           {
+               @Html.Raw("Yes")
+           }
+           else
+           {
+               @Html.Raw("No")
+           }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+           Sold:@if(item.Sold==true)
+           {
+               @Html.Raw("Yes")
+           }
+           else
+           {
+               @Html.Raw("No")
+           }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlatType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Property.Name)
+        </td>
+        <td>
+            @{
+                if (item.FlatImages.Count > 0)
+                {
+                    var pi = item.FlatImages.First();
+                    @Html.Raw("<a href=\"../FlatImages?Flat=" + item.Id.ToString() + "\"><img src=\"../Upload/FlatImage/" + pi.Id.ToString() + "_" + pi.Name + "\" title=\"Total : " + item.FlatImages.Count + " Images\" height=\"100\"/></a>");
+                }
+                else
+                {
+                    @Html.Raw("<img src = \"../Upload/NoProductImage.jpg\" height=\"100\"/> />")
+                }
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

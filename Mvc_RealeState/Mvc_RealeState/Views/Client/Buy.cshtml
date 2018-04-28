@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Buy";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<div id="best-deal" style="margin-top:20px">
+
+
+    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box" data-animate-effect="fadeIn">
+        <h2 h2 style="margin-top:25px">We are Offering the Best Real Estate Deals</h2>
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+            {
+            <div class="col-md-4" style="margin-bottom:20px">
+                <div class="thumbnail" style="max-height:500px;min-height:500px;padding:5px">
+                    <figure>
+                        <img src="../../Upload/PropertyImage/@(item.Id.ToString() + "_" +item.Image)" style="max-width:100%" />
+
+                    </figure>
+                    <div class="fh5co-property-innter" style="text-align:center;">
+                        <h3><a>@(item.Name)</a></h3>
+                        <p>Description@(item.Description)</p>
+                        <p style="margin-top: -24px;margin-right:9px;color:chocolate">Address:@(item.Address),City :@(item.CityName)</p><br />
+                    </div>
+                    <br />
+
+                    <p style="text-align:center;"> <a class="btn btn-info" href="../../Client/Details/@item.Id" role="button" style="margin-top:-133px">View Details</a></p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center animate-box" data-animate-effect="fadeIn">
+            <nav>
+                <ul class="pagination">
+                    <li class="disabled">
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+

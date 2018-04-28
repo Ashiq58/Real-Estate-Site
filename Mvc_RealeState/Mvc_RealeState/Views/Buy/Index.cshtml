@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Mvc_RealeState.Models.Buy_Sell>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Buy/Sell</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Flat Name
+        </th>
+        <th>
+            Payment Type
+        </th>
+        <th>
+           Amount
+        </th>
+        <th>
+           All Paper
+        </th>
+        <th>
+           User Name
+        </th>
+        <th>
+            User Address
+        </th>
+        <th>
+            User Contact
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+           Voucher Id
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flat.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment.Amount)
+        </td>
+        <td>
+           @if(item.All_Paper==true)
+           {
+              @Html.Raw("Yes")
+           }
+           else
+           {
+            @Html.Raw("No")
+           }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>      
+        <td>
+            @Html.DisplayFor(modelItem => item.Voucher.Id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

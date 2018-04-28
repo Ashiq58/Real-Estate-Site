@@ -1,0 +1,129 @@
+﻿@model IEnumerable<Mvc_RealeState.NewModel.Propertys>
+@using Mvc_RealeState.Models;
+@{
+    ViewBag.Title = "sHome";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<h2>sHome</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Flat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Floor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lift)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Generator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Caretecar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Flat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Floor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lift)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Generator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Caretecar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id })
+        </td>
+    </tr>hidden
+
+#line 30 "E:\LICT\Mvc_RealeState\Mvc_RealeState\Views\Client\sHome.cshtml"
+
+}
+
+</table>
+
+@foreach (var item in Model)
+{
+<div class="col-md-4 item-block animate-box" data-animate-effect="fadeIn">
+    <div class="fh5co-property">
+        <figure>
+            @{ 
+                string imageName;
+                using (MyCon con = new MyCon())
+                {
+                    PropertyImage img = (from i in con.PropertyImages where i.PropertyId == item.Id select i).FirstOrDefault();
+                    if (img.Name != null || img.Name != "")
+                    {
+                        imageName = img.Name;
+                    }
+                    else
+                    {
+                        imageName = "noimage.jpg";
+                    }
+
+                }
+            }
+            <img src="../Upload/PropertyImage/@(item.Id.ToString() + "_" + imageName )" />
+            <a href="#" class="tag">For Sale @(item.City)</a>
+        </figure>
+        <div class="fh5co-property-innter">
+            <h3><a href="#">Villa In Hialeah, Dade County</a></h3>
+            <div class="price-status">
+                <span class="price">$540,000 </span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque dicta magni amet atque doloremque velit unde adipisci omnis hic quaerat.</p>
+        </div>
+        <p class="fh5co-property-specification">
+            <span><strong>3500</strong> Sq Ft</span>  <span><strong>3</strong> Beds</span>  <span><strong>3.5</strong> Baths</span>  <span><strong>2</strong> Garages</span>
+        </p>
+    </div>
+</div>
+   }

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Mvc_RealeState.Models.Property>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Property</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+         Property Info    
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            Image
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            Property Name:@Html.DisplayFor(modelItem => item.Name)<br />  
+            Total Flat:@Html.DisplayFor(modelItem => item.Total_Flat)<br /> 
+            Total Floor:@Html.DisplayFor(modelItem => item.Total_Floor)<br /> 
+            Lift:@if (item.Lift == true)
+           {
+               @Html.Raw("Yes")<br />
+             }
+             else
+             {
+               @Html.Raw("No")<br />
+             }
+            Generator:@if (item.Generator == true)
+            {
+                @Html.Raw("Yes")<br />
+            }
+            else
+            {
+                @Html.Raw("No")<br />
+            }
+          Caretecar:@if(item.Caretecar==true)
+          {
+              @Html.Raw("Yes")<br />
+          }
+          else
+          {
+              @Html.Raw("No")<br />
+          }
+            Parking:@if(item.Parking==true)
+            {
+                @Html.Raw("Yes")<br />
+            }
+            else
+            {
+                @Html.Raw("NO")<br />
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City.Name)
+        </td>
+        <td>
+            @{
+                if (item.PropertyImages.Count > 0)
+                {
+                    var pi = item.PropertyImages.First();
+
+                    @Html.Raw("<a href=\"../ProperyImages?Property=" + item.Id.ToString() + "\"><img src=\"../upload/PropertyImage/" + pi.PropertyId.ToString() + "_" + pi.Name + "\" title=\"Total : " + item.PropertyImages.Count + " Images\" height=\"100\"/></a>");
+                }
+                else
+                {
+                    @Html.Raw("<img src = \"../Upload/productImages/no-product-image-available.png\" height=\"100\"/> />")
+                }
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,72 @@
+﻿@model Mvc_RealeState.Models.Buy_Sell
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Buy_Sell</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.All_Paper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.All_Paper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flat.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flat.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voucher.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voucher.Id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

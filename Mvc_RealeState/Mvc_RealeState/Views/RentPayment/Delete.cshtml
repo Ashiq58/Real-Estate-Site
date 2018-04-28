@@ -1,0 +1,56 @@
+﻿@model Mvc_RealeState.Models.Rent_Payment
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Rent_Payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment_Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment_Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rent.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rent.Id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

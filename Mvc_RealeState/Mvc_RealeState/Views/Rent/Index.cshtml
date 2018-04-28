@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Mvc_RealeState.NewModel.RentPaymentInfo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Payment Code
+        </th>
+        <th>
+            Amount
+        </th>
+        <th>
+            Contact
+        </th>
+        <th>
+            Flat
+        </th>
+        <th>
+            User
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payment_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.ActionLink(item.FlatName, "Details", "Flat", new { id = item.FlatId }, null)
+            </td>
+            <td>
+                @Html.ActionLink(item.UserName, "Details", "Users", new { id = item.UserId }, null)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+            </td>
+        </tr>
+    }
+
+</table>

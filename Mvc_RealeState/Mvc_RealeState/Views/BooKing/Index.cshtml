@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Mvc_RealeState.Models.Buy_Sell>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Booking</h2>
+
+<table class="table">
+    <tr>
+            
+        <th>
+           Flat Name
+        </th>
+        <th>
+           Payment Type
+        </th>
+        <th>
+            Amount
+        </th>
+        <th>
+            Secret Code/Transection Number
+        </th>
+        <th>
+           Client Info
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Flat.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payment.Code)
+        </td>
+        <td>
+           <b> Name:</b> @Html.DisplayFor(modelItem => item.User.Name)<br />
+            <b> Email:</b>@Html.DisplayFor(modelItem => item.User.Email)<br />
+             <b> Contact:</b>@Html.DisplayFor(modelItem => item.User.Contact)
+        </td>
+         
+    </tr>
+}
+
+</table>

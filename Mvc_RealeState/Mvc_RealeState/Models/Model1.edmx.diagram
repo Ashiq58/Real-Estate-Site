@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cfe6f2f9bfaf46c38b79bf88e3d978a9" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Buy_Sell" Width="1.5" PointX="9.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Category" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.City" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Country" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Discount" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Flat" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.FlatImage" Width="1.5" PointX="9.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.FlatType" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Payment" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Property" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.PropertyImage" Width="1.5" PointX="7.5" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Query" Width="1.5" PointX="9.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Rent" Width="1.5" PointX="12.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Rent_Payment" Width="1.5" PointX="15" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.UserImage" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.User" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.UserType" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Mvc_RealeStateModel.Voucher" Width="1.5" PointX="7.5" PointY="19.5" IsExpanded="true" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Buy_Sell__FlatId__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Buy_Sell__Paymen__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Buy_Sell__UserId__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Buy_Sell__Vouche__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Category__Catego__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__City__CountryId__1367E606" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Property__CityId__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Users__CityId__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Flat__DiscountId__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Flat__FlatTypeId__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Flat__PropertyId__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__FlatImage__FlatI__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Rent__FlatId__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__PropertyI__Prope__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Rent__UserId__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Rent_Paym__RentI__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__UserImage__UserI__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="Mvc_RealeStateModel.FK__Users__UserTypeI__2D27B809" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

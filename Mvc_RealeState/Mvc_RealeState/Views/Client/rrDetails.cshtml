@@ -1,0 +1,158 @@
+﻿@model Mvc_RealeState.Models.Flat
+  
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<h2>@Model.Name  Details</h2>
+
+
+<div class="row container">
+
+    <div class="col-md-4 row" style="margin:15px; border:thin solid silver; overflow:hidden;">
+        
+        @if (string dept in ViewBag.dept_name)
+                    <img id="mainImage" class="col-md-12" src="../../Upload/NoProductImage.jpg" />
+        }
+        else
+        {
+            var pi = Model.PropertyImages.First();
+            <img id="mainImage" class="col-md-12 mainImage" src="../../Upload/FlatImage/@(pi.Id.ToString() + "_" + pi.Name)" />
+        }
+
+    </div>
+    <div class="col-md-6" style="border:thin solid silver;">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.Web.Optimization;
+using System.Web.Routing;
+using Mvc_RealeState;
+
+public class _Page_Views_Client_Details_cshtml : System.Web.Mvc.WebViewPage<Mvc_RealeState.Models.Flat> {
+                    private static object @__o;
+                    rline hidden
+public _Page_Views_Client_Details_cshtml() {
+                    }
+                    protected System.Web.HttpApplication ApplicationInstance {
+                        get {
+                            return ((System.Web.HttpApplication)(Context.ApplicationInstance));
+                        }
+                    }
+                    private void @__RazorDesignTimeHelpers__() {
+#pragma warning disable 219
+
+#line 1 "E:\LICT\Mvc_RealeState\Mvc_RealeState\Views\Client\Details.cshtml"
+                        Mvc_RealeState.Models.Flat __inheritsHelper = null;
+
+
+#line default
+#line hidden
+#pragma warning restore 219
+                    }
+                    public override void Execute() {
+
+#line 2 "E:\LICT\Mvc_RealeState\Mvc_RealeState\Views\Client\Details.cshtml"
+
+                        ViewBag.Title = "Details";
+                        Layout = "~/Views/Shared/_PublicLayout.cshtml";
+
+
+#line default
+#line hidden
+
+#line 3 "E:\LICT\Mvc_RealeState\Mvc_RealeState\Views\Client\Details.cshtml"
+                        foreach (string dept in ViewBag.dept_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Size)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Size)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Total_Room)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Total_Room)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BedRoom)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BedRoom)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Kichen)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Kichen)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WashRoom)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WashRoom)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Dining)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Dining)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Draining)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Draining)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Corridor)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Corridor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Position)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Position)
+            </dd>
+
+
+            
+        </dl>
+
+        <div>
+           
+        </div>
+
+     </div>
+
+    </div>
+
+
+
+   

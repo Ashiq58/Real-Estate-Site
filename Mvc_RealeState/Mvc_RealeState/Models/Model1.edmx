@@ -1,0 +1,1260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Mvc_RealeStateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Buy_Sell">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FlatId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="VoucherId" Type="int" Nullable="false" />
+          <Property Name="All_Paper" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PaymentId" Type="int" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Discount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="float" />
+        </EntityType>
+        <EntityType Name="Flat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Size" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Total_Room" Type="int" Nullable="false" />
+          <Property Name="BedRoom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Kichen" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="WashRoom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dining" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Draining" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Corridor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Position" Type="varchar" MaxLength="50" />
+          <Property Name="Floor_No" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Complete" Type="bit" />
+          <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Sold" Type="bit" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+          <Property Name="DiscountId" Type="int" />
+          <Property Name="FlatTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FlatImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="FlatId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FlatType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VoucherId" Type="int" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Total_Flat" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Total_Floor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lift" Type="bit" />
+          <Property Name="Generator" Type="bit" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Caretecar" Type="bit" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="Parking" Type="bit" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="PropertyImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PropertyId" Type="int" />
+        </EntityType>
+        <EntityType Name="Query">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cell" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FlatId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Paper" Type="bit" />
+          <Property Name="Contact" Type="int" />
+        </EntityType>
+        <EntityType Name="Rent_Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RentId" Type="int" Nullable="false" />
+          <Property Name="Payment_Code" Type="int" Nullable="false" />
+          <Property Name="DataTime" Type="date" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Contact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NId_orPassport" Type="int" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="UserTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Voucher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="V_Discount" Type="float" />
+        </EntityType>
+        <Association Name="FK__Buy_Sell__FlatId__3D5E1FD2">
+          <End Role="Flat" Type="Self.Flat" Multiplicity="1" />
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="FlatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buy_Sell__Paymen__403A8C7D">
+          <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="PaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buy_Sell__UserId__3E52440B">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buy_Sell__Vouche__3F466844">
+          <End Role="Voucher" Type="Self.Voucher" Multiplicity="1" />
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voucher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="VoucherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Category__Catego__1CF15040">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Category1" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__CountryId__1367E606">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flat__DiscountId__36B12243">
+          <End Role="Discount" Type="Self.Discount" Multiplicity="0..1" />
+          <End Role="Flat" Type="Self.Flat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discount">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Flat">
+              <PropertyRef Name="DiscountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flat__FlatTypeId__37A5467C">
+          <End Role="FlatType" Type="Self.FlatType" Multiplicity="1" />
+          <End Role="Flat" Type="Self.Flat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FlatType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Flat">
+              <PropertyRef Name="FlatTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flat__PropertyId__35BCFE0A">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Flat" Type="Self.Flat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Flat">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FlatImage__FlatI__3A81B327">
+          <End Role="Flat" Type="Self.Flat" Multiplicity="1" />
+          <End Role="FlatImage" Type="Self.FlatImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FlatImage">
+              <PropertyRef Name="FlatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Property__CityId__173876EA">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PropertyI__Prope__1A14E395">
+          <End Role="Property" Type="Self.Property" Multiplicity="0..1" />
+          <End Role="PropertyImage" Type="Self.PropertyImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertyImage">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__FlatId__4316F928">
+          <End Role="Flat" Type="Self.Flat" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="FlatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__UserId__440B1D61">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent_Paym__RentI__46E78A0C">
+          <End Role="Rent" Type="Self.Rent" Multiplicity="1" />
+          <End Role="Rent_Payment" Type="Self.Rent_Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rent_Payment">
+              <PropertyRef Name="RentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserImage__UserI__300424B4">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserImage" Type="Self.UserImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserImage">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__CityId__2C3393D0">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__UserTypeI__2D27B809">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Mvc_RealeStateModelStoreContainer">
+          <EntitySet Name="Buy_Sell" EntityType="Self.Buy_Sell" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discount" EntityType="Self.Discount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flat" EntityType="Self.Flat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FlatImage" EntityType="Self.FlatImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FlatType" EntityType="Self.FlatType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PropertyImage" EntityType="Self.PropertyImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Query" EntityType="Self.Query" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent_Payment" EntityType="Self.Rent_Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserImage" EntityType="Self.UserImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Buy_Sell__FlatId__3D5E1FD2" Association="Self.FK__Buy_Sell__FlatId__3D5E1FD2">
+            <End Role="Flat" EntitySet="Flat" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buy_Sell__Paymen__403A8C7D" Association="Self.FK__Buy_Sell__Paymen__403A8C7D">
+            <End Role="Payment" EntitySet="Payment" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buy_Sell__UserId__3E52440B" Association="Self.FK__Buy_Sell__UserId__3E52440B">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buy_Sell__Vouche__3F466844" Association="Self.FK__Buy_Sell__Vouche__3F466844">
+            <End Role="Voucher" EntitySet="Voucher" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Category__Catego__1CF15040" Association="Self.FK__Category__Catego__1CF15040">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Category1" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__CountryId__1367E606" Association="Self.FK__City__CountryId__1367E606">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flat__DiscountId__36B12243" Association="Self.FK__Flat__DiscountId__36B12243">
+            <End Role="Discount" EntitySet="Discount" />
+            <End Role="Flat" EntitySet="Flat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flat__FlatTypeId__37A5467C" Association="Self.FK__Flat__FlatTypeId__37A5467C">
+            <End Role="FlatType" EntitySet="FlatType" />
+            <End Role="Flat" EntitySet="Flat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flat__PropertyId__35BCFE0A" Association="Self.FK__Flat__PropertyId__35BCFE0A">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="Flat" EntitySet="Flat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FlatImage__FlatI__3A81B327" Association="Self.FK__FlatImage__FlatI__3A81B327">
+            <End Role="Flat" EntitySet="Flat" />
+            <End Role="FlatImage" EntitySet="FlatImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Property__CityId__173876EA" Association="Self.FK__Property__CityId__173876EA">
+            <End Role="City" EntitySet="City" />
+            <End Role="Property" EntitySet="Property" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PropertyI__Prope__1A14E395" Association="Self.FK__PropertyI__Prope__1A14E395">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="PropertyImage" EntitySet="PropertyImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__FlatId__4316F928" Association="Self.FK__Rent__FlatId__4316F928">
+            <End Role="Flat" EntitySet="Flat" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__UserId__440B1D61" Association="Self.FK__Rent__UserId__440B1D61">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent_Paym__RentI__46E78A0C" Association="Self.FK__Rent_Paym__RentI__46E78A0C">
+            <End Role="Rent" EntitySet="Rent" />
+            <End Role="Rent_Payment" EntitySet="Rent_Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserImage__UserI__300424B4" Association="Self.FK__UserImage__UserI__300424B4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserImage" EntitySet="UserImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__CityId__2C3393D0" Association="Self.FK__Users__CityId__2C3393D0">
+            <End Role="City" EntitySet="City" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__UserTypeI__2D27B809" Association="Self.FK__Users__UserTypeI__2D27B809">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Mvc_RealeStateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Buy_Sell">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FlatId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="VoucherId" Type="Int32" Nullable="false" />
+          <Property Name="All_Paper" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PaymentId" Type="Int32" />
+          <NavigationProperty Name="Flat" Relationship="Self.FK__Buy_Sell__FlatId__3D5E1FD2" FromRole="Buy_Sell" ToRole="Flat" />
+          <NavigationProperty Name="Payment" Relationship="Self.FK__Buy_Sell__Paymen__403A8C7D" FromRole="Buy_Sell" ToRole="Payment" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Buy_Sell__UserId__3E52440B" FromRole="Buy_Sell" ToRole="Users" />
+          <NavigationProperty Name="Voucher" Relationship="Self.FK__Buy_Sell__Vouche__3F466844" FromRole="Buy_Sell" ToRole="Voucher" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK__Category__Catego__1CF15040" FromRole="Category" ToRole="Category1" />
+          <NavigationProperty Name="Category2" Relationship="Self.FK__Category__Catego__1CF15040" FromRole="Category1" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK__City__CountryId__1367E606" FromRole="City" ToRole="Country" />
+          <NavigationProperty Name="Properties" Relationship="Self.FK__Property__CityId__173876EA" FromRole="City" ToRole="Property" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__CityId__2C3393D0" FromRole="City" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__City__CountryId__1367E606" FromRole="Country" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Discount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Double" />
+          <NavigationProperty Name="Flats" Relationship="Self.FK__Flat__DiscountId__36B12243" FromRole="Discount" ToRole="Flat" />
+        </EntityType>
+        <EntityType Name="Flat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Total_Room" Type="Int32" Nullable="false" />
+          <Property Name="BedRoom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kichen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WashRoom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dining" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Draining" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Corridor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Floor_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Complete" Type="Boolean" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sold" Type="Boolean" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <Property Name="DiscountId" Type="Int32" />
+          <Property Name="FlatTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Buy_Sell" Relationship="Self.FK__Buy_Sell__FlatId__3D5E1FD2" FromRole="Flat" ToRole="Buy_Sell" />
+          <NavigationProperty Name="Discount" Relationship="Self.FK__Flat__DiscountId__36B12243" FromRole="Flat" ToRole="Discount" />
+          <NavigationProperty Name="FlatType" Relationship="Self.FK__Flat__FlatTypeId__37A5467C" FromRole="Flat" ToRole="FlatType" />
+          <NavigationProperty Name="Property" Relationship="Self.FK__Flat__PropertyId__35BCFE0A" FromRole="Flat" ToRole="Property" />
+          <NavigationProperty Name="FlatImages" Relationship="Self.FK__FlatImage__FlatI__3A81B327" FromRole="Flat" ToRole="FlatImage" />
+          <NavigationProperty Name="Rents" Relationship="Self.FK__Rent__FlatId__4316F928" FromRole="Flat" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="FlatImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FlatId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Flat" Relationship="Self.FK__FlatImage__FlatI__3A81B327" FromRole="FlatImage" ToRole="Flat" />
+        </EntityType>
+        <EntityType Name="FlatType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Flats" Relationship="Self.FK__Flat__FlatTypeId__37A5467C" FromRole="FlatType" ToRole="Flat" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Buy_Sell" Relationship="Self.FK__Buy_Sell__Paymen__403A8C7D" FromRole="Payment" ToRole="Buy_Sell" />
+          <Property Name="VoucherId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Total_Flat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Total_Floor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lift" Type="Boolean" />
+          <Property Name="Generator" Type="Boolean" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Caretecar" Type="Boolean" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="Parking" Type="Boolean" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Property__CityId__173876EA" FromRole="Property" ToRole="City" />
+          <NavigationProperty Name="Flats" Relationship="Self.FK__Flat__PropertyId__35BCFE0A" FromRole="Property" ToRole="Flat" />
+          <NavigationProperty Name="PropertyImages" Relationship="Self.FK__PropertyI__Prope__1A14E395" FromRole="Property" ToRole="PropertyImage" />
+        </EntityType>
+        <EntityType Name="PropertyImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PropertyId" Type="Int32" />
+          <NavigationProperty Name="Property" Relationship="Self.FK__PropertyI__Prope__1A14E395" FromRole="PropertyImage" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="Query">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cell" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FlatId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Paper" Type="Boolean" />
+          <Property Name="Contact" Type="Int32" />
+          <NavigationProperty Name="Flat" Relationship="Self.FK__Rent__FlatId__4316F928" FromRole="Rent" ToRole="Flat" />
+          <NavigationProperty Name="User" Relationship="Self.FK__Rent__UserId__440B1D61" FromRole="Rent" ToRole="Users" />
+          <NavigationProperty Name="Rent_Payment" Relationship="Self.FK__Rent_Paym__RentI__46E78A0C" FromRole="Rent" ToRole="Rent_Payment" />
+        </EntityType>
+        <EntityType Name="Rent_Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RentId" Type="Int32" Nullable="false" />
+          <Property Name="Payment_Code" Type="Int32" Nullable="false" />
+          <Property Name="DataTime" Type="DateTime" Precision="0" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Rent" Relationship="Self.FK__Rent_Paym__RentI__46E78A0C" FromRole="Rent_Payment" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="UserImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK__UserImage__UserI__300424B4" FromRole="UserImage" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NId_orPassport" Type="Int32" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Buy_Sell" Relationship="Self.FK__Buy_Sell__UserId__3E52440B" FromRole="Users" ToRole="Buy_Sell" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Users__CityId__2C3393D0" FromRole="Users" ToRole="City" />
+          <NavigationProperty Name="Rents" Relationship="Self.FK__Rent__UserId__440B1D61" FromRole="Users" ToRole="Rent" />
+          <NavigationProperty Name="UserImages" Relationship="Self.FK__UserImage__UserI__300424B4" FromRole="Users" ToRole="UserImage" />
+          <NavigationProperty Name="UserType" Relationship="Self.FK__Users__UserTypeI__2D27B809" FromRole="Users" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__UserTypeI__2D27B809" FromRole="UserType" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Voucher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="V_Discount" Type="Double" />
+          <NavigationProperty Name="Buy_Sell" Relationship="Self.FK__Buy_Sell__Vouche__3F466844" FromRole="Voucher" ToRole="Buy_Sell" />
+        </EntityType>
+        <Association Name="FK__Buy_Sell__FlatId__3D5E1FD2">
+          <End Role="Flat" Type="Self.Flat" Multiplicity="1" />
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="FlatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buy_Sell__Paymen__403A8C7D">
+          <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="PaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buy_Sell__UserId__3E52440B">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buy_Sell__Vouche__3F466844">
+          <End Role="Voucher" Type="Self.Voucher" Multiplicity="1" />
+          <End Role="Buy_Sell" Type="Self.Buy_Sell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voucher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buy_Sell">
+              <PropertyRef Name="VoucherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Category__Catego__1CF15040">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Category1" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__City__CountryId__1367E606">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Property__CityId__173876EA">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__CityId__2C3393D0">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flat__DiscountId__36B12243">
+          <End Role="Discount" Type="Self.Discount" Multiplicity="0..1" />
+          <End Role="Flat" Type="Self.Flat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discount">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Flat">
+              <PropertyRef Name="DiscountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flat__FlatTypeId__37A5467C">
+          <End Role="FlatType" Type="Self.FlatType" Multiplicity="1" />
+          <End Role="Flat" Type="Self.Flat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FlatType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Flat">
+              <PropertyRef Name="FlatTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Flat__PropertyId__35BCFE0A">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Flat" Type="Self.Flat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Flat">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FlatImage__FlatI__3A81B327">
+          <End Role="Flat" Type="Self.Flat" Multiplicity="1" />
+          <End Role="FlatImage" Type="Self.FlatImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FlatImage">
+              <PropertyRef Name="FlatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__FlatId__4316F928">
+          <End Role="Flat" Type="Self.Flat" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="FlatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PropertyI__Prope__1A14E395">
+          <End Role="Property" Type="Self.Property" Multiplicity="0..1" />
+          <End Role="PropertyImage" Type="Self.PropertyImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PropertyImage">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent__UserId__440B1D61">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rent_Paym__RentI__46E78A0C">
+          <End Role="Rent" Type="Self.Rent" Multiplicity="1" />
+          <End Role="Rent_Payment" Type="Self.Rent_Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rent_Payment">
+              <PropertyRef Name="RentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserImage__UserI__300424B4">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="UserImage" Type="Self.UserImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserImage">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__UserTypeI__2D27B809">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MyCon" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Buy_Sell" EntityType="Self.Buy_Sell" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="Discounts" EntityType="Self.Discount" />
+          <EntitySet Name="Flats" EntityType="Self.Flat" />
+          <EntitySet Name="FlatImages" EntityType="Self.FlatImage" />
+          <EntitySet Name="FlatTypes" EntityType="Self.FlatType" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="Properties" EntityType="Self.Property" />
+          <EntitySet Name="PropertyImages" EntityType="Self.PropertyImage" />
+          <EntitySet Name="Queries" EntityType="Self.Query" />
+          <EntitySet Name="Rents" EntityType="Self.Rent" />
+          <EntitySet Name="Rent_Payment" EntityType="Self.Rent_Payment" />
+          <EntitySet Name="UserImages" EntityType="Self.UserImage" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <EntitySet Name="Vouchers" EntityType="Self.Voucher" />
+          <AssociationSet Name="FK__Buy_Sell__FlatId__3D5E1FD2" Association="Self.FK__Buy_Sell__FlatId__3D5E1FD2">
+            <End Role="Flat" EntitySet="Flats" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buy_Sell__Paymen__403A8C7D" Association="Self.FK__Buy_Sell__Paymen__403A8C7D">
+            <End Role="Payment" EntitySet="Payments" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buy_Sell__UserId__3E52440B" Association="Self.FK__Buy_Sell__UserId__3E52440B">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buy_Sell__Vouche__3F466844" Association="Self.FK__Buy_Sell__Vouche__3F466844">
+            <End Role="Voucher" EntitySet="Vouchers" />
+            <End Role="Buy_Sell" EntitySet="Buy_Sell" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Category__Catego__1CF15040" Association="Self.FK__Category__Catego__1CF15040">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Category1" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__City__CountryId__1367E606" Association="Self.FK__City__CountryId__1367E606">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Property__CityId__173876EA" Association="Self.FK__Property__CityId__173876EA">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Property" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__CityId__2C3393D0" Association="Self.FK__Users__CityId__2C3393D0">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flat__DiscountId__36B12243" Association="Self.FK__Flat__DiscountId__36B12243">
+            <End Role="Discount" EntitySet="Discounts" />
+            <End Role="Flat" EntitySet="Flats" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flat__FlatTypeId__37A5467C" Association="Self.FK__Flat__FlatTypeId__37A5467C">
+            <End Role="FlatType" EntitySet="FlatTypes" />
+            <End Role="Flat" EntitySet="Flats" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Flat__PropertyId__35BCFE0A" Association="Self.FK__Flat__PropertyId__35BCFE0A">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="Flat" EntitySet="Flats" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FlatImage__FlatI__3A81B327" Association="Self.FK__FlatImage__FlatI__3A81B327">
+            <End Role="Flat" EntitySet="Flats" />
+            <End Role="FlatImage" EntitySet="FlatImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__FlatId__4316F928" Association="Self.FK__Rent__FlatId__4316F928">
+            <End Role="Flat" EntitySet="Flats" />
+            <End Role="Rent" EntitySet="Rents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PropertyI__Prope__1A14E395" Association="Self.FK__PropertyI__Prope__1A14E395">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="PropertyImage" EntitySet="PropertyImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent__UserId__440B1D61" Association="Self.FK__Rent__UserId__440B1D61">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Rent" EntitySet="Rents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rent_Paym__RentI__46E78A0C" Association="Self.FK__Rent_Paym__RentI__46E78A0C">
+            <End Role="Rent" EntitySet="Rents" />
+            <End Role="Rent_Payment" EntitySet="Rent_Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserImage__UserI__300424B4" Association="Self.FK__UserImage__UserI__300424B4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserImage" EntitySet="UserImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__UserTypeI__2D27B809" Association="Self.FK__Users__UserTypeI__2D27B809">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Mvc_RealeStateModelStoreContainer" CdmEntityContainer="MyCon">
+          <EntitySetMapping Name="Buy_Sell">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Buy_Sell">
+              <MappingFragment StoreEntitySet="Buy_Sell">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FlatId" ColumnName="FlatId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="VoucherId" ColumnName="VoucherId" />
+                <ScalarProperty Name="All_Paper" ColumnName="All_Paper" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discounts">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Discount">
+              <MappingFragment StoreEntitySet="Discount">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flats">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Flat">
+              <MappingFragment StoreEntitySet="Flat">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Total_Room" ColumnName="Total_Room" />
+                <ScalarProperty Name="BedRoom" ColumnName="BedRoom" />
+                <ScalarProperty Name="Kichen" ColumnName="Kichen" />
+                <ScalarProperty Name="WashRoom" ColumnName="WashRoom" />
+                <ScalarProperty Name="Dining" ColumnName="Dining" />
+                <ScalarProperty Name="Draining" ColumnName="Draining" />
+                <ScalarProperty Name="Corridor" ColumnName="Corridor" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Floor_No" ColumnName="Floor_No" />
+                <ScalarProperty Name="Complete" ColumnName="Complete" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Sold" ColumnName="Sold" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+                <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
+                <ScalarProperty Name="FlatTypeId" ColumnName="FlatTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlatImages">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.FlatImage">
+              <MappingFragment StoreEntitySet="FlatImage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FlatId" ColumnName="FlatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlatTypes">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.FlatType">
+              <MappingFragment StoreEntitySet="FlatType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="VoucherId" ColumnName="VoucherId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Property">
+              <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Total_Flat" ColumnName="Total_Flat" />
+                <ScalarProperty Name="Total_Floor" ColumnName="Total_Floor" />
+                <ScalarProperty Name="Lift" ColumnName="Lift" />
+                <ScalarProperty Name="Generator" ColumnName="Generator" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Caretecar" ColumnName="Caretecar" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Parking" ColumnName="Parking" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PropertyImages">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.PropertyImage">
+              <MappingFragment StoreEntitySet="PropertyImage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Queries">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Query">
+              <MappingFragment StoreEntitySet="Query">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Cell" ColumnName="Cell" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rents">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Rent">
+              <MappingFragment StoreEntitySet="Rent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FlatId" ColumnName="FlatId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Paper" ColumnName="Paper" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rent_Payment">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Rent_Payment">
+              <MappingFragment StoreEntitySet="Rent_Payment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RentId" ColumnName="RentId" />
+                <ScalarProperty Name="Payment_Code" ColumnName="Payment_Code" />
+                <ScalarProperty Name="DataTime" ColumnName="DataTime" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserImages">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.UserImage">
+              <MappingFragment StoreEntitySet="UserImage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NId_orPassport" ColumnName="NId_orPassport" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vouchers">
+            <EntityTypeMapping TypeName="Mvc_RealeStateModel.Voucher">
+              <MappingFragment StoreEntitySet="Voucher">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="V_Discount" ColumnName="V_Discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

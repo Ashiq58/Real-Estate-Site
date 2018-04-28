@@ -1,0 +1,66 @@
+﻿@model Mvc_RealeState.Models.Buy_Sell
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Buy_Sell</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.All_Paper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.All_Paper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flat.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flat.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voucher.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voucher.Id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

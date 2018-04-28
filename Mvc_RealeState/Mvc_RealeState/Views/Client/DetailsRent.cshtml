@@ -1,0 +1,148 @@
+﻿@model Mvc_RealeState.Models.Flat
+
+@{
+    ViewBag.Title = "DetailsRent";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<div class="row" style="margin-top:30px ; border-bottom:3px; border-bottom-color:darkgray;">
+    @foreach (var Flats in ViewBag.flats)
+    {
+        if (Flats.FlatTypeId == 1)
+        {
+            int count = 0;
+
+        <div class="col-md-6 jumbotron" style="margin:15px; overflow:hidden;">
+            <h3 class="text-center text-info">Property Name @Flats.Property.Name</h3>
+            <h4 class="text-center text-info"> Flat Name @Flats.Name</h4>
+            @foreach (var FlatImages in ViewBag.FlatImages)
+            {
+
+                if (FlatImages.FlatId == Flats.Id)
+                {
+                    string Img;
+                    Img = FlatImages.Name;
+                    if (count == 0)
+                    {
+                        <div class="row col-md-8 col-md-offset-2 pull-left">
+                            <img id="mainImage" class="col-md-12 mainImage" src="../../Upload/FlatImage/@(FlatImages.Id.ToString() + "_" + FlatImages.Name)" />
+
+                        </div>
+                        count = 1;
+                    }
+                    else
+                    {
+                        <div class="row col-md-3">
+                            <img id="mainImage" class="col-md-12 mainImage" src="../../Upload/FlatImage/@(FlatImages.Id.ToString() + "_" + FlatImages.Name)" />
+
+                        </div>
+                    }
+
+                }
+            }
+          
+        </div>
+        <div class="col-md-4">
+            <br />
+            <br />
+            @*<div class="col-md-3">*@
+            <dl class="dl-horizontal">
+                <dt>
+                    Flat Information
+                </dt>
+                <dd>
+                    FlatName:@Flats.Name,
+                    Size:@Flats.Size,
+                    Room:@Flats.Total_Room,
+                    BeadRoom:@Flats.BedRoom,
+                    Kichen:@Flats.Kichen,
+                    WashRoom:@Flats.WashRoom,
+                    Dining:@Flats.Dining,
+                    Draining:@Flats.Draining,
+                    Corridor:@Flats.Corridor,
+                    Position:@Flats.Position,
+                    Floor No:@Flats.Floor_No,
+                </dd>
+                <dt>
+                    Flat Status
+                </dt>
+                <dd>
+                    Cimplete: @if (Flats.Complete == true)
+                    {
+                        @Html.Raw("Yes")
+                    }
+                    else
+                    {
+                        @Html.Raw("No")
+                    }
+                    Description:@Flats.Description
+                    Sold:@if (Flats.Sold == true)
+                    {
+                        @Html.Raw("Sold")
+                    }
+                    else
+                    {
+                        @Html.Raw("Available")
+                    }
+
+                </dd>
+                <dt>
+                    Flat Price
+                </dt>
+                <dd>
+                    Price:@Flats.Price
+                </dd>
+                <dd>
+                    Discount:@Flats.Discount.Name
+                </dd>
+                <dt>
+                    Flat Type
+                </dt>
+                <dd>
+                    Flat Type:@Flats.FlatType.Name
+                </dd>
+                <dt>
+                    property Name
+                </dt>
+                <dd>
+                    property Name:@Flats.Property.Name
+                </dd>
+            </dl>
+            <div class="row">
+
+                <a class="btn btn-info" style="margin-left: 53px;margin-bottom: -86px" href="../../Booking/Bookings/@Flats.Id" role="button">Booking Now</a>
+                @*<span> <a class="btn btn-info" style="margin-left: 53px;margin-bottom: -86px"  role="button" data-toggle="modal" data-target=".bd-example-modal-sm">Query</a></span>*@
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-info" style="margin-left: 53px;margin-bottom: -86px" data-toggle="modal" data-target="#myModal">Any Query </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Please Sent</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form id="contact_form" action="/onlinejson/test.php" method="POST">
+                                    First name: <input type="text" name="first_name"><br />
+                                    Last name: <input type="text" name="last_name"><br />
+                                </form>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" id="submitForm" class="btn btn-default">Send</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+            }
+        }
+</div>

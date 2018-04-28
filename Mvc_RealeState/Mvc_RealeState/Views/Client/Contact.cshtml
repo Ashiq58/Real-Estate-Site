@@ -1,0 +1,123 @@
+﻿@model Mvc_RealeState.Models.Query
+@{
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+@if (TempData["message"] != null)
+{
+    if (TempData["message"].ToString() != "Error")
+    {
+        <div class="alert alert-success" id="msg" style="margin-top:34px">
+            <strong>Success!</strong>@TempData["message"].ToString()
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger" id="msg">
+            <strong>Failed!</strong>Something Went Wrong...
+        </div>
+    }
+}
+
+
+<div class="fh5co-contact animate-box" style="background-color:navajowhite">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+
+                    <h3>Contact Info.</h3>
+                    <ul class="contact-info">
+                        <li><i class="icon-map"></i>198 West 21th Street, Suite 721 New York NY 10016</li>
+                        <li><i class="icon-phone"></i>+ 1235 2355 98</li>
+                        <li><i class="icon-envelope"></i><a href="#">info@yoursite.com</a></li>
+                        <li><i class="icon-globe"></i><a href="#">www.yoursite.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                      @using (Html.BeginForm())
+
+                    {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal"style="color:cornflowerblue">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Cell, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Cell, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Cell, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="sent" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+               
+            </div>
+          
+            
+            @*<div class="col-md-8 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Name" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Email" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input value="Send Message" class="btn btn-primary" type="submit">
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</div>
+<div class="google-map">
+
+    <div class="row" style="background-color:navajowhite">
+        <div class="col-md-3"><h3 style="padding-left: 15px;">Our Office Map</h3></div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.1848294353495!2d90.35472881261396!3d23.81202571228822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c12015382851%3A0x3ceca92fcf1a72d2!2sBangladesh+University+of+Business+%26+Technology+(BUBT)!5e0!3m2!1sen!2s!4v1503163115202" width="100%" height="450px" frameborder="0" style="border: 0; padding-left:10px; padding-right: 10px; margin-bottom: -8px;" allowfullscreen></iframe>
+    </div>
+</div>
+

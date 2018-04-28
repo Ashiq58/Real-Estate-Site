@@ -1,0 +1,224 @@
+﻿@model Mvc_RealeState.Models.Query
+    <!--First of all you have to use jquery plugin-->
+
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+
+<div class="row" style="margin-top:30px ; border-bottom:3px; border-bottom-color:darkgray;">
+    @foreach (var Flats in ViewBag.flats)
+    {
+
+        int count = 0;
+
+        <div class="col-md-6 jumbotron" style="margin:15px; overflow:hidden;">
+            <h3 class="text-center text-info">Property Name @Flats.Property.Name</h3>
+            <h4 class="text-center text-info"> Flat Name @Flats.Name</h4>
+            @foreach (var FlatImages in ViewBag.FlatImages)
+            {
+
+                if (FlatImages.FlatId == Flats.Id)
+                {
+                    string Img;
+                    Img = FlatImages.Name;
+                    if (count == 0)
+                    {
+                        <div class="row col-md-8 col-md-offset-2 pull-left">
+                            <img  src="../../Upload/FlatImage/@(FlatImages.Id.ToString() + "_" + FlatImages.Name)"id="mainImage" class="col-md-12 mainImage" onclick="ready()" />
+
+                        </div>
+                        count = 1;
+                    }
+                    else
+                    {
+                        <hr />
+                        <div class="row col-md-3">
+                            <img  src="../../Upload/FlatImage/@(FlatImages.Id.ToString() + "_" + FlatImages.Name)"id=@("Name"+count.ToString()) class="col-md-12 subImage" />
+                            
+                           
+                        </div>
+                    }
+
+                    @*{
+                            int i = 0;
+                            foreach (var pi in Model.FlatImages)
+                            {
+                                @Html.Raw("<img id=\"subImage" + i.ToString() + "\" class=\"subImage\" src=\"../../Upload/FlatImage/" + pi.Id.ToString() + "_" + pi.Name + "\" onClick=\"changeImage('subImage" + i.ToString() + "')\" />")
+                                i++;
+                            }
+                        }*@
+                }
+
+            }
+        </div>
+        <div class="col-md-4">
+            <br />
+            <br />
+            @*<div class="col-md-3">*@
+            <dl class="dl-horizontal">
+                <dt>
+                    <b>Flat Information:</b>
+                </dt>
+                <dd>
+                    FlatName:@Flats.Name,
+                    Size:@Flats.Size,
+                    Room:@Flats.Total_Room,
+                    BeadRoom:@Flats.BedRoom,
+                    Kichen:@Flats.Kichen,
+                    WashRoom:@Flats.WashRoom,
+                    Dining:@Flats.Dining,
+                    Draining:@Flats.Draining,
+                    Corridor:@Flats.Corridor,
+                    Position:@Flats.Position,
+                    Floor No:@Flats.Floor_No,
+                    
+                </dd>
+                <dt>
+                    <b>Flat Status:</b>
+                </dt>
+                <dd>
+                    Cimplete: @if (Flats.Complete == true)
+                    {
+                        @Html.Raw("Yes")
+                    }
+                    else
+                    {
+                        @Html.Raw("No")
+                    }
+                    Description:@Flats.Description
+                    Sold:@if (Flats.Sold == true)
+                    {
+                        @Html.Raw("Sold")
+                    }
+                    else
+                    {
+                        @Html.Raw("Available")
+                    }
+
+                </dd>
+                <dt>
+                    <b>Flat Price:</b>
+                </dt>
+                <dd>
+                    @Flats.Price
+                </dd>
+                <dd>
+                    Discount:@Flats.Discount.Name
+                </dd>
+                <dt>
+                    <b>Flat Type:</b>
+                </dt>
+                <dd>
+                    @Flats.FlatType.Name
+                </dd>
+                <dt>
+                    <b>property Name:</b>
+                </dt>
+                <dd>
+                    @Flats.Property.Name
+                </dd>
+            </dl>
+            <div class="row">
+
+                <a class="btn btn-info" style="margin-left: 53px;margin-bottom: -86px" href="../../Booking/Bookings/@Flats.Id" role="button">Booking Now</a>
+
+                <a class="btn btn-info" style="margin-left: 53px;margin-bottom: -86px" href="../../Client/Contact/@Flats.Id" role="button">Any Query</a>
+                @*<span> <a class="btn btn-info" style="margin-left: 53px;margin-bottom: -86px"  role="button" data-toggle="modal" data-target=".bd-example-modal-sm">Query</a></span>*@
+                <!-- Trigger the modal with a button -->
+               
+                @*<button type="button" class="btn btn-info" style="margin-left: 53px;margin-bottom: -86px" data-toggle="modal" data-target="#myModal">Any Query</button>*@
+
+                <!-- Modal -->
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Please Sent</h4>
+                                </div>
+                                <div class="modal-body">
+                                        Your Name: <input type="text" name="Name" class="form-control"><br />
+                                        Your Number: <input type="text" name="Cell" class="form-control"><br />
+                                        Your Email: <input type="email" name="Email" class="form-control"><br />
+                                        Message:<textarea name="Message" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
+
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <input type="submit" formaction=@Url.Action("QureyCreate") formmethod="post" class="btn btn-default" value="Send"></input>
+                                  
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+        </div>
+
+
+
+    }
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+@section scriptsDetails {
+<script>
+    $(document).ready(function () {
+        var imageSource = "";
+        var imageId = "";
+        var height = 5;
+        //For the first image that is selected
+        $("#Name0").css("border", "1.5px solid black");
+        $("#Name0").css('box-shadow', '5px 5px 2.5px #888');
+
+        $('.subImage').mouseover(function () {
+            //To get the selected image id
+            imageId = $(this).closest('.subImage').attr('id');
+            // add 5px height with the orginal height
+           
+
+        })
+        $('.subImage').mouseout(function () {
+            // remove 5px height with the orginal height
+            
+        })
+        $('.subImage').click(function () {
+            imageSource = $(this).closest('.subImage').attr('src');
+            imageId = $(this).closest('.subImage').attr('id');
+
+            // hide main image for fade In
+            $('#mainImage').hide();
+            // set the source attribute to the main image
+            $('.mainImage').attr('src', imageSource);
+            $('#mainImage').fadeIn(1500);
+
+            // Fisrt remove the applied css
+            $('.subImage').each(function (index) {
+                $(".imageSub").css("border", "0px solid red");
+                $(".imageSub").css('box-shadow', '0px 0px 0px 0px #888');
+            })
+
+            // Add css to the selected image
+            $("#" + imageId).css("border", "1.5px solid black");
+            $("#" + imageId).css('box-shadow', '5px 5px 2.5px #888');
+        })
+    })
+</script>
+}

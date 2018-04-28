@@ -1,0 +1,50 @@
+﻿@model Mvc_RealeState.Models.Rent_Payment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Rent_Payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment_Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment_Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rent.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rent.Id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

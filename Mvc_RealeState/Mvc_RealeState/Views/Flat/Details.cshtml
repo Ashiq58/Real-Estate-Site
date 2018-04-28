@@ -1,0 +1,162 @@
+﻿@model Mvc_RealeState.Models.Flat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Flat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_Room)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_Room)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BedRoom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BedRoom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kichen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kichen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WashRoom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WashRoom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Draining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Draining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Corridor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Corridor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Floor_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Floor_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Complete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Complete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discount.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlatType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlatType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Property.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Property.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
